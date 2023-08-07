@@ -8,7 +8,7 @@ const App = () => {
   return (
     <ThemeProvider>
       <SafeAreaView>
-        <Button text="Hola ironhackers" onPress={() => console.log('spin')} />
+        <Button text="Hola Mundo" onPress={() => console.log('spin')} />
       </SafeAreaView>
     </ThemeProvider>
   );
