@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
-import {Text} from '../../../index';
+import Text from '../../../components/Text/Text';
 import Divider from '../../../components/Divider';
 
 export default function Benefits() {

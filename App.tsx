@@ -4,7 +4,6 @@ import {SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import MainNavigation from './src/mainNavigation';
 import ThemeProvider from './src/theme/ThemeProvider';
-import {Button} from './src';
 
 const App = () => {
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
-import {Text, Tag} from '../../../index';
+import Text from '../../../components/Text/Text';
+import Tag from '../../../components/atoms/Tag';
 import Divider from '../../../components/Divider';
 
 export default function Header() {
