@@ -1,15 +1,36 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {TabParamList} from './types';
+import {StackParamList, TabParamList} from './types';
 import HomeScreen from '../screens/HomeScreen';
 import BenefitsScreen from '../screens/BenefitsScreen';
 import WalletScreen from '../screens/WalletScreen';
 import AccountScreen from '../screens/AccountScreen';
+import Movements from '../screens/Movements';
+import ChangePoints from '../screens/ChangePoints';
 import {Image} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator<TabParamList>();
+const Stack = createStackNavigator<StackParamList>();
 
-const MainNavigation = () => {
+const MainStackNavigation = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="MainTabs"
+          component={MainTabNavigation}
+        />
+        <Stack.Screen name="Movements" component={Movements} />
+        <Stack.Screen name="ChangePoints" component={ChangePoints} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const MainTabNavigation = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -43,4 +64,4 @@ const MainNavigation = () => {
   );
 };
 
-export default MainNavigation;
+export default MainStackNavigation;

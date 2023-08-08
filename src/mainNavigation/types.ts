@@ -4,3 +4,9 @@ export type TabParamList = {
   Cartera: undefined;
   Cuenta: undefined;
 };
+
+export type StackParamList = {
+  MainTabs: TabParamList;
+  Movements: undefined;
+  ChangePoints: undefined;
+};
