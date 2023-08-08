@@ -1,0 +1,32 @@
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
+
+const TransactionContext = createContext<any>(null);
+
+export const useTransactionContext = () => {
+  return useContext(TransactionContext);
+};
+
+export const TransactionProvider: React.FC<{children: ReactNode}> = ({
+  children,
+}) => {
+  const [transactions, setTransactions] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/history')
+      .then(response => response.json())
+      .then(data => setTransactions(data))
+      .catch(error => console.error('Error fetching transactions:', error));
+  }, []);
+
+  return (
+    <TransactionContext.Provider value={transactions}>
+      {children}
+    </TransactionContext.Provider>
+  );
+};
