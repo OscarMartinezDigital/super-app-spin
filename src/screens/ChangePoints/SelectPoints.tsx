@@ -1,29 +1,15 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import AllyButton from './components/AllyButton';
 
-export default function ChangePoints() {
+const SelectPoints = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.description}>
         Elige la marca aliada en la que quieres usar tus puntos
       </Text>
-
-      <AllyButton
-        imageSource={require('../../assets/logos/volaris.png')}
-        onPress={() => {}}
-      />
-      <AllyButton
-        imageSource={require('../../assets/logos/smart-fit.png')}
-        onPress={() => {}}
-      />
-      <AllyButton
-        imageSource={require('../../assets/logos/vix.png')}
-        onPress={() => {}}
-      />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -41,3 +27,5 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 });
+
+export default SelectPoints;
