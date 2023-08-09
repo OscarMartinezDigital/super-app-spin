@@ -1,8 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import AllyButton from './components/AllyButton';
+import {NavigationProps} from '../../mainNavigation/types';
 
 export default function ChangePoints() {
+  const navigation = useNavigation<NavigationProps>();
+
   return (
     <View style={styles.container}>
       <Text style={styles.description}>
@@ -11,15 +15,15 @@ export default function ChangePoints() {
 
       <AllyButton
         imageSource={require('../../assets/logos/volaris.png')}
-        onPress={() => {}}
+        onPress={() => navigation.navigate('ChangePointsStepTwo')}
       />
       <AllyButton
         imageSource={require('../../assets/logos/smart-fit.png')}
-        onPress={() => {}}
+        onPress={() => navigation.navigate('ChangePointsStepTwo')}
       />
       <AllyButton
         imageSource={require('../../assets/logos/vix.png')}
-        onPress={() => {}}
+        onPress={() => navigation.navigate('ChangePointsStepTwo')}
       />
     </View>
   );

@@ -18,7 +18,7 @@ const BenefitsScreen = () => {
           <Header />
           <Cards
             onHistoryPress={() => navigation.navigate('Movements')}
-            onRedeemPress={() => navigation.navigate('ChangePoints')}
+            onRedeemPress={() => navigation.navigate('ChangePointsStepOne')}
           />
           <Benefits />
           <BannerBottom />

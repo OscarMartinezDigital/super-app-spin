@@ -9,7 +9,8 @@ import WalletScreen from '../screens/WalletScreen';
 import AccountScreen from '../screens/AccountScreen';
 import MovementsScreen from '../screens/Movements';
 import TransactionDetailScreen from '../screens/TransactionDetail';
-import ChangePoints from '../screens/ChangePoints';
+import ChangePointsStepOne from '../screens/ChangePoints/StepOne';
+import ChangePointsStepTwo from '../screens/ChangePoints/StepTwo';
 import TabIcon from './components/TabIcon';
 import TabBarLabel from './components/TabBarLabel';
 
@@ -30,7 +31,14 @@ const MainStackNavigation = () => {
           name="TransactionDetail"
           component={TransactionDetailScreen}
         />
-        <Stack.Screen name="ChangePoints" component={ChangePoints} />
+        <Stack.Screen
+          name="ChangePointsStepOne"
+          component={ChangePointsStepOne}
+        />
+        <Stack.Screen
+          name="ChangePointsStepTwo"
+          component={ChangePointsStepTwo}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
