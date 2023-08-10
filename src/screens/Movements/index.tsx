@@ -4,30 +4,31 @@ import {TabView, SceneMap} from 'react-native-tab-view';
 import TabBar from '../../components/TabBar/TabBar';
 import HistoryList from './components/HistoryList';
 import {HistoryBySection} from './fakeData';
+import useHistoryTransaction from '../../hooks/useHistoryTransaction';
 
 const AllRoute = () => {
-  // const { all } = useHistoryTransaction();
+  const {all} = useHistoryTransaction();
   return (
     <View style={styles.routeContainer}>
-      <HistoryList listBySections={HistoryBySection} />
+      <HistoryList listBySections={all} />
     </View>
   );
 };
 
 const EarnedRoute = () => {
-  // const { earned } = useHistoryTransaction();
+  const {earned} = useHistoryTransaction();
   return (
     <View style={styles.routeContainer}>
-      <HistoryList listBySections={HistoryBySection} />
+      <HistoryList listBySections={earned} />
     </View>
   );
 };
 
 const UsedRoute = () => {
-  // const { used } = useHistoryTransaction();
+  const {used} = useHistoryTransaction();
   return (
     <View style={styles.routeContainer}>
-      <HistoryList listBySections={HistoryBySection} />
+      <HistoryList listBySections={used} />
     </View>
   );
 };
