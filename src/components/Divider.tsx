@@ -5,6 +5,6 @@ type Props = {
   width?: number;
   height?: number;
 };
-export default function Header({width, height}: Props) {
+export default function Divider({width, height}: Props) {
   return <View style={{width, height}} />;
 }
