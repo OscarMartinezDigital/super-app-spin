@@ -7,14 +7,26 @@ import Divider from '../../components/Divider';
 import Header from './components/Header';
 import Chip from './components/Chip';
 import Disclaimer from './components/Disclaimer';
+import {StepTwoProps} from '../../mainNavigation/types';
 
-const SelectPoints = () => {
+const SelectPoints = ({route}: StepTwoProps) => {
   const [inputValue, setInputValue] = useState('');
-  const [isValid, setIsValid] = useState([false]);
+  const [isValid, setIsValid] = useState(false);
+  const {points} = route.params;
+  const [userPoints, setUserPoints] = useState(2000);
+
+  const handleInputChange = (value: string) => {
+    setInputValue(value);
+    const numericValue = parseFloat(value);
+
+    if (numericValue > 1000) {
+      setIsValid(true);
+    } else setIsValid(false);
+  };
 
   return (
     <View style={styles.container}>
-      <Header points={1200} />
+      <Header points={userPoints} />
 
       <View style={styles.contentContainer}>
         <View>
@@ -22,33 +34,49 @@ const SelectPoints = () => {
             Elige la marca aliada en la que quieres usar tus puntos
           </Text>
 
-          <View style={styles.chipsContainer}>
-            <Chip points={500} onPress={() => {}} selected={false} />
-            <Chip points={1000} onPress={() => {}} selected={false} />
-            <Chip points={2000} onPress={() => {}} selected={false} />
-            <Chip points={5000} onPress={() => {}} selected={true} />
-          </View>
+          {
+            <View style={styles.chipsContainer}>
+              {userPoints >= 1000 && (
+                <View style={styles.pairChipsContainer}>
+                  <Chip points={500} onPress={() => {}} selected={false} />
+                  <Chip points={1000} onPress={() => {}} selected={false} />
+                </View>
+              )}
+              {userPoints >= 10000 && (
+                <View style={styles.pairChipsContainer}>
+                  <Chip points={2000} onPress={() => {}} selected={false} />
+                  <Chip points={5000} onPress={() => {}} selected={true} />
+                </View>
+              )}
+            </View>
+          }
 
           <TextInput
             label="Monto en pesos"
             variant="numeric"
             maxLength={10}
             pattern={['(?=.*\\d)']}
-            onValidation={setIsValid}
+            // onValidation={setIsValid}
             value={inputValue}
-            onChangeText={setInputValue}
-            // error="El valor máximo que puedes cambiar es $1,000.00"
+            onChangeText={handleInputChange}
+            editable={userPoints < points ? false : true}
+            selectTextOnFocus={userPoints < points ? false : true}
+            error={isValid ? 'El valor máximo que puedes cambiar es 1000' : ''}
           />
 
-          <Text style={styles.message}>
-            El valor máximo que puedes cambiar es $1,000.00
-          </Text>
+          {!isValid && (
+            <Text style={styles.message}>
+              El valor mínimo que puedes cambiar es $ {points / 10}.00
+            </Text>
+          )}
 
-          {/* <Disclaimer description="Recuerda que necesitas tener mínimo $20.00 en puntos para poder cambiarlos con la marca que elegiste" /> */}
+          {userPoints < points && userPoints < 1000 && (
+            <Disclaimer description="Recuerda que necesitas tener mínimo $20.00 en puntos para poder cambiarlos con la marca que elegiste" />
+          )}
         </View>
 
         <Button
-          disabled={false}
+          disabled={userPoints < points || isValid ? true : false}
           variant="primary"
           text="Continuar"
           onPress={() => {}}
@@ -89,6 +117,11 @@ const styles = StyleSheet.create({
   },
   chipsContainer: {
     marginBottom: 32,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 16,
+  },
+  pairChipsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 16,

@@ -20,7 +20,7 @@ export type StackParamList = {
   };
   ChangePoints: undefined;
   ChangePointsStepOne: undefined;
-  ChangePointsStepTwo: undefined;
+  ChangePointsStepTwo: {points: number};
 };
 
 export type BenefitsProps = StackScreenProps<TabParamList, 'Benefits'>;
@@ -28,5 +28,9 @@ export type BenefitsProps = StackScreenProps<TabParamList, 'Benefits'>;
 export type TransactionDetailProps = StackScreenProps<
   StackParamList,
   'TransactionDetail'
+>;
+export type StepTwoProps = StackScreenProps<
+  StackParamList,
+  'ChangePointsStepTwo'
 >;
 export type NavigationProps = StackNavigationProp<StackParamList>;

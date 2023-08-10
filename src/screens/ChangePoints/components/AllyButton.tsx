@@ -12,16 +12,23 @@ import Card from '../../../components/Card/Card';
 type AllyButtonProps = {
   imageSource: ImageSourcePropType;
   onPress: () => void;
+  entity: string;
+  description: string;
 };
 
-export default function AllyButton({imageSource, onPress}: AllyButtonProps) {
+export default function AllyButton({
+  imageSource,
+  onPress,
+  entity,
+  description,
+}: AllyButtonProps) {
   return (
     <Card style={styles.container}>
       <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
         <Image style={styles.imageLogo} source={imageSource} />
         <View style={styles.content}>
-          <Text style={styles.title}>Volaris</Text>
-          <Text style={styles.subtitle}>Movilidad</Text>
+          <Text style={styles.title}>{entity}</Text>
+          <Text style={styles.subtitle}>{description}</Text>
         </View>
 
         <Image

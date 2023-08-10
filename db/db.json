@@ -6,53 +6,46 @@
       "points": 100,
       "operation": "earned",
       "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a52",
+      "spended": false,
       "id": 1
     },
     {
       "entity": "Oxxo Gas",
       "date": "Sun Aug 06 2023",
       "points": 100,
-      "operation": "no",
+      "operation": "earned",
       "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+      "spended": false,
       "id": 2
     },
     {
       "entity": "Volaris",
       "date": "Sun Aug 01 2023",
       "points": 1000,
-      "operation": "no",
+      "operation": "earned",
       "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+      "spended": false,
       "id": 3
     },
     {
       "entity": "Volaris",
       "date": "Sun Aug 01 2023",
       "points": 1000,
-      "operation": "no",
+      "operation": "earned",
       "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-      "id": 4
-    },
-    {
-      "entity": "Volaris",
-      "date": "Sun Aug 01 2023",
-      "expiryDate": "Fri Sep 01 2023",
-      "points": 1000,
-      "operation": "no",
-      "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-      "giftCode": "42738499092812000",
       "spended": false,
-      "id": 5
+      "id": 4
     },
     {
       "entity": "Volaris",
       "date": "Mon Jul 17 2023",
       "expiryDate": "Fri Sep 01 2023",
       "points": 1000,
-      "operation": "no",
+      "operation": "used",
       "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
       "giftCode": "42738499092812000",
       "spended": true,
-      "id": 6
+      "id": 5
     }
   ]
 }

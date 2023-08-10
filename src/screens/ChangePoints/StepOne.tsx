@@ -15,15 +15,27 @@ export default function ChangePoints() {
 
       <AllyButton
         imageSource={require('../../assets/logos/volaris.png')}
-        onPress={() => navigation.navigate('ChangePointsStepTwo')}
+        onPress={() =>
+          navigation.navigate('ChangePointsStepTwo', {points: 200})
+        }
+        entity="Volaris"
+        description="Movilidad"
       />
       <AllyButton
         imageSource={require('../../assets/logos/smart-fit.png')}
-        onPress={() => navigation.navigate('ChangePointsStepTwo')}
+        onPress={() =>
+          navigation.navigate('ChangePointsStepTwo', {points: 200})
+        }
+        entity="Smart Fit"
+        description="Deportes"
       />
       <AllyButton
         imageSource={require('../../assets/logos/vix.png')}
-        onPress={() => navigation.navigate('ChangePointsStepTwo')}
+        onPress={() =>
+          navigation.navigate('ChangePointsStepTwo', {points: 200})
+        }
+        entity="VIX"
+        description="Entretenimiento"
       />
     </View>
   );

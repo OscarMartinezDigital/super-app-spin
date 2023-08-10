@@ -12,7 +12,7 @@ export default function Header({points}: HeaderProps) {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.pointsContainer}>
-        <Text variant="headline-large">10,200 puntos</Text>
+        <Text variant="headline-large">{points.toLocaleString()} puntos</Text>
         <Divider width={12} />
         <Image source={require('../../../assets/Alert.png')} />
       </View>
@@ -20,7 +20,7 @@ export default function Header({points}: HeaderProps) {
       <Tag
         leftIcon={require('../../../assets/starburst.png')}
         variant="points"
-        text="Valen $1,200.00"
+        text={`Valen $${(points / 10).toLocaleString()}`}
         size="large"
       />
     </View>

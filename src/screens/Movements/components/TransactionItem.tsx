@@ -59,7 +59,9 @@ export default function TransactionItem({
           <Divider height={4} />
           <Text style={styles.date}>{dateFormatted}</Text>
         </View>
-        <Text style={styles.points}>{`+ ${points}`}</Text>
+        <Text style={styles.points}>
+          {operation === 'earned' ? `+ ${points}` : `- ${points}`}
+        </Text>
       </View>
     </TouchableOpacity>
   );
