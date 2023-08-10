@@ -63,7 +63,11 @@ const MainTabNavigation = () => {
         tabBarActiveTintColor: '#05053D',
         tabBarInactiveTintColor: '#69698B',
       })}>
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
       <Tab.Screen name="Benefits" component={BenefitsScreen} />
       <Tab.Screen name="Wallet" component={WalletScreen} />
       <Tab.Screen name="Account" component={AccountScreen} />
