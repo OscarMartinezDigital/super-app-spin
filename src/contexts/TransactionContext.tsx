@@ -6,7 +6,7 @@ import React, {
   ReactNode,
 } from 'react';
 
-const TransactionContext = createContext<any>(null);
+export const TransactionContext = createContext<any>(null);
 
 export const useTransactionContext = () => {
   return useContext(TransactionContext);

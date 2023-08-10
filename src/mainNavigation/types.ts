@@ -10,7 +10,15 @@ export type TabParamList = {
 export type StackParamList = {
   MainTabs: TabParamList;
   Movements: undefined;
-  TransactionDetail: {id: number};
+  TransactionDetail: {
+    id: number;
+    entity: string;
+    date: string;
+    points: number;
+    operation: string;
+    transactionNo: string;
+  };
+  ChangePoints: undefined;
   ChangePointsStepOne: undefined;
   ChangePointsStepTwo: undefined;
 };

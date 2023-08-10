@@ -11,25 +11,53 @@ import {useNavigation} from '@react-navigation/native';
 import Divider from '../../../components/Divider';
 import {Transaction} from '../../../types';
 import {NavigationProps} from '../../../mainNavigation/types';
-
-type LogoObj = {
-  [key: string]: ImageSourcePropType;
-};
+import {LOGOS} from '../../../styles/LogosObj/logos';
 
 interface ItemProps extends Transaction {}
 
-export default function TransactionItem({id, entity, date, points}: ItemProps) {
+export default function TransactionItem({
+  id,
+  entity,
+  date,
+  points,
+  operation,
+  transactionNo,
+}: ItemProps) {
   const navigation = useNavigation<NavigationProps>();
+
+  let newDate = new Date(date);
+  let dayArr = [
+    'Domingo',
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
+  ];
+
+  let day = dayArr[newDate.getDay()];
+  let month = newDate.getDate();
+  let dateFormatted = day + ' ' + month;
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('TransactionDetail', {id})}>
+      onPress={() =>
+        navigation.navigate('TransactionDetail', {
+          id,
+          entity,
+          date,
+          points,
+          operation,
+          transactionNo,
+        })
+      }>
       <View style={styles.container}>
         <Image source={LOGOS[entity]} style={styles.image} />
         <View style={styles.centerContainer}>
           <Text style={styles.title}>{entity}</Text>
           <Divider height={4} />
-          <Text style={styles.date}>{date}</Text>
+          <Text style={styles.date}>{dateFormatted}</Text>
         </View>
         <Text style={styles.points}>{`+ ${points}`}</Text>
       </View>
@@ -76,10 +104,3 @@ const styles = StyleSheet.create({
     letterSpacing: -0.28,
   },
 });
-
-const LOGOS: LogoObj = {
-  'Oxxo Gas': require('../../../assets/logos/oxxo-gas.png'),
-  Volaris: require('../../../assets/logos/volaris.png'),
-  Oxxo: require('../../../assets/logos/oxxo.png'),
-  'Doña Tota': require('../../../assets/logos/tota.png'),
-};

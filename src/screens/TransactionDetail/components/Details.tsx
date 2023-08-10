@@ -7,19 +7,29 @@ type DetailsProps = {
 };
 
 export default function Details({points, date}: DetailsProps) {
+  let getDate = new Date(date);
+  let day = getDate.getDate();
+  let month = getDate.getMonth() + 1;
+  let month2 = getDate.getMonth() + 2;
+  let year = getDate.getFullYear();
+  let dateFormatted = day + '/' + month + '/' + year;
+  let dateFormattedAndMonth = day + '/' + month2 + '/' + year;
+
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
         <Text style={[styles.baseText, styles.itemKey]}>Monto total:</Text>
-        <Text style={[styles.baseText, styles.itemValue]}>$30.00</Text>
+        <Text style={[styles.baseText, styles.itemValue]}>${points / 10}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={[styles.baseText, styles.itemKey]}>Fecha:</Text>
-        <Text style={[styles.baseText, styles.itemValue]}>21/5/2023</Text>
+        <Text style={[styles.baseText, styles.itemValue]}>{dateFormatted}</Text>
       </View>
       <View style={styles.itemContainer}>
         <Text style={[styles.baseText, styles.itemKey]}>Úsalos desde el:</Text>
-        <Text style={[styles.baseText, styles.itemValue]}>21/8/2023</Text>
+        <Text style={[styles.baseText, styles.itemValue]}>
+          {dateFormattedAndMonth}
+        </Text>
       </View>
     </View>
   );

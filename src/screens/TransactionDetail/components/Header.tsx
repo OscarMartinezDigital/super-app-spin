@@ -1,15 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, ImageSourcePropType} from 'react-native';
 
 import Card from '../../../components/Card/Card';
+import {LOGOS} from '../../../styles/LogosObj/logos';
 
 type HeaderDetailProps = {
   entityName: string;
   points: number;
   operation: 'earned' | 'used' | string;
 };
-
-const image = require('../../../assets/logos/volaris.png');
 
 export default function Header({
   entityName,
@@ -20,7 +19,7 @@ export default function Header({
     <View style={styles.header}>
       <Card style={styles.cardContainer}>
         <View style={styles.card}>
-          <Text style={styles.title}>Volaris</Text>
+          <Text style={styles.title}>{entityName}</Text>
           <View style={styles.body}>
             <Text style={styles.textBody}>En esta compra ganaste:</Text>
           </View>
@@ -33,7 +32,7 @@ export default function Header({
           </View>
         </View>
       </Card>
-      <Image source={image} style={styles.logo} />
+      <Image source={LOGOS[entityName]} style={styles.logo} />
     </View>
   );
 }
