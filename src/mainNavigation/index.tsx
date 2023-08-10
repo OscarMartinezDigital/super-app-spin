@@ -14,6 +14,7 @@ import ChangePointsStepTwo from '../screens/ChangePoints/StepTwo';
 import TabIcon from './components/TabIcon';
 import TabBarLabel from './components/TabBarLabel';
 import TabHeader from './components/TabHeader';
+import StackHeader from './components/StackHeader';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 const Stack = createStackNavigator<StackParamList>();
@@ -21,7 +22,10 @@ const Stack = createStackNavigator<StackParamList>();
 const MainStackNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          header: props => <StackHeader {...props} />,
+        }}>
         <Stack.Screen
           options={{headerShown: false}}
           name="MainTabs"
