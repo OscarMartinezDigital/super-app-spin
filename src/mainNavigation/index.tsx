@@ -11,6 +11,7 @@ import MovementsScreen from '../screens/Movements';
 import TransactionDetailScreen from '../screens/TransactionDetail';
 import ChangePointsStepOne from '../screens/ChangePoints/StepOne';
 import ChangePointsStepTwo from '../screens/ChangePoints/StepTwo';
+import ChangePointsStepThree from '../screens/ChangePoints/StepThree';
 import TabIcon from './components/TabIcon';
 import TabBarLabel from './components/TabBarLabel';
 import TabHeader from './components/TabHeader';
@@ -43,6 +44,11 @@ const MainStackNavigation = () => {
         <Stack.Screen
           name="ChangePointsStepTwo"
           component={ChangePointsStepTwo}
+        />
+        <Stack.Screen
+          name="ChangePointsStepThree"
+          component={ChangePointsStepThree}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
