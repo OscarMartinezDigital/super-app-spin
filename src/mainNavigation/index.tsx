@@ -13,6 +13,7 @@ import ChangePointsStepOne from '../screens/ChangePoints/StepOne';
 import ChangePointsStepTwo from '../screens/ChangePoints/StepTwo';
 import TabIcon from './components/TabIcon';
 import TabBarLabel from './components/TabBarLabel';
+import TabHeader from './components/TabHeader';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 const Stack = createStackNavigator<StackParamList>();
@@ -54,6 +55,7 @@ const MainTabNavigation = () => {
         tabBarLabel: ({focused}) => (
           <TabBarLabel focused={focused} routeName={route.name} />
         ),
+        header: ({route}) => <TabHeader routeName={route.name} />,
         tabBarStyle: {
           height: 76,
         },
