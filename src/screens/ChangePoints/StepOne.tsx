@@ -16,7 +16,10 @@ export default function ChangePoints() {
       <AllyButton
         imageSource={require('../../assets/logos/volaris.png')}
         onPress={() =>
-          navigation.navigate('ChangePointsStepTwo', {points: 200})
+          navigation.navigate('ChangePointsStepTwo', {
+            points: 200,
+            entity: 'Volaris',
+          })
         }
         entity="Volaris"
         description="Movilidad"
@@ -24,7 +27,10 @@ export default function ChangePoints() {
       <AllyButton
         imageSource={require('../../assets/logos/smart-fit.png')}
         onPress={() =>
-          navigation.navigate('ChangePointsStepTwo', {points: 200})
+          navigation.navigate('ChangePointsStepTwo', {
+            points: 300,
+            entity: 'Smart Fit',
+          })
         }
         entity="Smart Fit"
         description="Deportes"
@@ -32,7 +38,10 @@ export default function ChangePoints() {
       <AllyButton
         imageSource={require('../../assets/logos/vix.png')}
         onPress={() =>
-          navigation.navigate('ChangePointsStepTwo', {points: 200})
+          navigation.navigate('ChangePointsStepTwo', {
+            points: 500,
+            entity: 'VIX',
+          })
         }
         entity="VIX"
         description="Entretenimiento"

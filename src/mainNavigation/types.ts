@@ -20,8 +20,8 @@ export type StackParamList = {
   };
   ChangePoints: undefined;
   ChangePointsStepOne: undefined;
-  ChangePointsStepTwo: {points: number};
-  ChangePointsStepThree: undefined;
+  ChangePointsStepTwo: {points: number; entity: string};
+  ChangePointsStepThree: {points: number; entity: string};
 };
 
 export type BenefitsProps = StackScreenProps<TabParamList, 'Benefits'>;
@@ -33,5 +33,9 @@ export type TransactionDetailProps = StackScreenProps<
 export type StepTwoProps = StackScreenProps<
   StackParamList,
   'ChangePointsStepTwo'
+>;
+export type StepThreeProps = StackScreenProps<
+  StackParamList,
+  'ChangePointsStepThree'
 >;
 export type NavigationProps = StackNavigationProp<StackParamList>;

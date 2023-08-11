@@ -15,7 +15,7 @@ const SelectPoints = ({route}: StepTwoProps) => {
   const navigation = useNavigation<NavigationProps>();
   const [inputValue, setInputValue] = useState('');
   const [isValid, setIsValid] = useState(false);
-  const {points} = route.params;
+  const {points, entity} = route.params;
   const [userPoints, setUserPoints] = useState(2000);
 
   const handleInputChange = (value: string) => {
@@ -82,7 +82,9 @@ const SelectPoints = ({route}: StepTwoProps) => {
           disabled={userPoints < points || isValid ? true : false}
           variant="primary"
           text="Continuar"
-          onPress={() => navigation.navigate('ChangePointsStepThree')}
+          onPress={() =>
+            navigation.navigate('ChangePointsStepThree', {points, entity})
+          }
         />
       </View>
     </View>
