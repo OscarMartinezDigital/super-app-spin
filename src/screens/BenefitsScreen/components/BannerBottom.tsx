@@ -3,7 +3,10 @@ import {ScrollView, Image, View, StyleSheet} from 'react-native';
 
 export default function BannerBottom() {
   return (
-    <ScrollView horizontal style={styles.container}>
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      style={styles.container}>
       <Image
         source={require('../../../assets/banner.png')}
         style={styles.image}

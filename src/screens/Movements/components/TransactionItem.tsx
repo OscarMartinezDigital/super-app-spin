@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
   },
   title: {
-    fontFamily: 'Inter',
+    fontFamily: 'Inter-Medium',
+    fontWeight: '400',
     fontSize: 16,
     lineHeight: 20,
     letterSpacing: -0.32,
@@ -93,13 +94,15 @@ const styles = StyleSheet.create({
   },
   date: {
     fontFamily: 'Inter',
+    fontWeight: '400',
     fontSize: 14,
     lineHeight: 20,
     letterSpacing: -0.28,
     color: '#373764',
   },
   points: {
-    fontFamily: 'Inter',
+    color: '#373764',
+    fontFamily: 'Inter-Bold',
     fontWeight: '600',
     fontSize: 14,
     lineHeight: 16,
