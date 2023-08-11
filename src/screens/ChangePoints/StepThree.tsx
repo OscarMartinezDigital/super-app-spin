@@ -19,7 +19,7 @@ const snackBarOptions = {
 };
 
 export default function ChangePointsStepThree({route}: StepThreeProps) {
-  const {points, entity} = route.params;
+  const {points, entity, inputValue} = route.params;
 
   const navigation = useNavigation<NavigationProps>();
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -65,7 +65,10 @@ export default function ChangePointsStepThree({route}: StepThreeProps) {
               </Text>
             </TouchableOpacity>
 
-            <Details points={points} date={new Date().toDateString()} />
+            <Details
+              points={parseFloat(inputValue)}
+              date={new Date().toDateString()}
+            />
             <TransactioNumber number="5dced89c-2b6e-4a1c-a715-c19b0a51" />
           </View>
           <View style={styles.buttonContainer}>

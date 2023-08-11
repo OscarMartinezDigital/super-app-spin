@@ -18,6 +18,7 @@ const SelectPoints = ({route}: StepTwoProps) => {
   const [isValid, setIsValid] = useState(false);
   const {points, entity} = route.params;
   const {userPoints, setUserPoints} = useTransactionContext();
+  const [selectedChips, setSelectedChips] = useState<number[]>([]);
 
   const handleInputChange = (value: string) => {
     setInputValue(value);
@@ -31,13 +32,18 @@ const SelectPoints = ({route}: StepTwoProps) => {
   const handleContinuePress = () => {
     if (userPoints >= points) {
       setUserPoints(userPoints - parseFloat(inputValue) * 10);
-      navigation.navigate('ChangePointsStepThree', {points, entity});
+      navigation.navigate('ChangePointsStepThree', {
+        points,
+        entity,
+        inputValue,
+      });
     }
   };
 
   const handleChipPress = (chipPoints: number) => {
     const calculatedValue = chipPoints / 10; // Calcula el valor en pesos
     setInputValue(calculatedValue.toString()); // Actualiza el valor del TextInput
+    setSelectedChips([chipPoints]);
   };
 
   return (
@@ -59,14 +65,14 @@ const SelectPoints = ({route}: StepTwoProps) => {
                     onPress={() => {
                       handleChipPress(500);
                     }}
-                    selected={false}
+                    selected={selectedChips.includes(500)}
                   />
                   <Chip
                     points={1000}
                     onPress={() => {
                       handleChipPress(1000);
                     }}
-                    selected={false}
+                    selected={selectedChips.includes(1000)}
                   />
                 </View>
               )}
@@ -77,14 +83,14 @@ const SelectPoints = ({route}: StepTwoProps) => {
                     onPress={() => {
                       handleChipPress(2000);
                     }}
-                    selected={false}
+                    selected={selectedChips.includes(2000)}
                   />
                   <Chip
                     points={5000}
                     onPress={() => {
                       handleChipPress(5000);
                     }}
-                    selected={false}
+                    selected={selectedChips.includes(5000)}
                   />
                 </View>
               )}
@@ -110,13 +116,15 @@ const SelectPoints = ({route}: StepTwoProps) => {
             </Text>
           )}
 
-          {userPoints < points && userPoints < 1000 && (
+          {userPoints < points && (
             <Disclaimer description="Recuerda que necesitas tener mínimo $20.00 en puntos para poder cambiarlos con la marca que elegiste" />
           )}
         </View>
 
         <Button
-          disabled={userPoints < points || isValid ? true : false}
+          disabled={
+            userPoints < points || isValid || inputValue === '' ? true : false
+          }
           variant="primary"
           text="Continuar"
           onPress={handleContinuePress}
