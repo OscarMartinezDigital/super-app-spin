@@ -21,6 +21,7 @@ export type StackParamList = {
   ChangePoints: undefined;
   ChangePointsStepOne: undefined;
   ChangePointsStepTwo: {points: number};
+  ChangePointsStepThree: undefined;
 };
 
 export type BenefitsProps = StackScreenProps<TabParamList, 'Benefits'>;

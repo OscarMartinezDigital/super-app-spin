@@ -11,8 +11,11 @@ import MovementsScreen from '../screens/Movements';
 import TransactionDetailScreen from '../screens/TransactionDetail';
 import ChangePointsStepOne from '../screens/ChangePoints/StepOne';
 import ChangePointsStepTwo from '../screens/ChangePoints/StepTwo';
+import ChangePointsStepThree from '../screens/ChangePoints/StepThree';
 import TabIcon from './components/TabIcon';
 import TabBarLabel from './components/TabBarLabel';
+import TabHeader from './components/TabHeader';
+import StackHeader from './components/StackHeader';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 const Stack = createStackNavigator<StackParamList>();
@@ -20,7 +23,10 @@ const Stack = createStackNavigator<StackParamList>();
 const MainStackNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          header: props => <StackHeader {...props} />,
+        }}>
         <Stack.Screen
           options={{headerShown: false}}
           name="MainTabs"
@@ -39,6 +45,11 @@ const MainStackNavigation = () => {
           name="ChangePointsStepTwo"
           component={ChangePointsStepTwo}
         />
+        <Stack.Screen
+          name="ChangePointsStepThree"
+          component={ChangePointsStepThree}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -54,6 +65,7 @@ const MainTabNavigation = () => {
         tabBarLabel: ({focused}) => (
           <TabBarLabel focused={focused} routeName={route.name} />
         ),
+        header: ({route}) => <TabHeader routeName={route.name} />,
         tabBarStyle: {
           height: 76,
         },
@@ -63,7 +75,11 @@ const MainTabNavigation = () => {
         tabBarActiveTintColor: '#05053D',
         tabBarInactiveTintColor: '#69698B',
       })}>
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
       <Tab.Screen name="Benefits" component={BenefitsScreen} />
       <Tab.Screen name="Wallet" component={WalletScreen} />
       <Tab.Screen name="Account" component={AccountScreen} />

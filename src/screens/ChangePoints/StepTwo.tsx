@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {NavigationProps} from '../../mainNavigation/types';
 import Text from '../../components/Text/Text';
 import Button from '../../components/Button/Button';
 import TextInput from '../../components/atoms/TextInput';
@@ -10,6 +12,7 @@ import Disclaimer from './components/Disclaimer';
 import {StepTwoProps} from '../../mainNavigation/types';
 
 const SelectPoints = ({route}: StepTwoProps) => {
+  const navigation = useNavigation<NavigationProps>();
   const [inputValue, setInputValue] = useState('');
   const [isValid, setIsValid] = useState(false);
   const {points} = route.params;
@@ -79,7 +82,7 @@ const SelectPoints = ({route}: StepTwoProps) => {
           disabled={userPoints < points || isValid ? true : false}
           variant="primary"
           text="Continuar"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('ChangePointsStepThree')}
         />
       </View>
     </View>
