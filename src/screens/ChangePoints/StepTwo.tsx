@@ -117,7 +117,10 @@ const SelectPoints = ({route}: StepTwoProps) => {
           )}
 
           {userPoints < points && (
-            <Disclaimer description="Recuerda que necesitas tener mínimo $20.00 en puntos para poder cambiarlos con la marca que elegiste" />
+            <>
+              <Divider height={16} />
+              <Disclaimer description="Recuerda que necesitas tener mínimo $20.00 en puntos para poder cambiarlos con la marca que elegiste" />
+            </>
           )}
         </View>
 
