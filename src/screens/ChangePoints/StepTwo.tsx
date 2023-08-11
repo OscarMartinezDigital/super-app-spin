@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     letterSpacing: -0.32,
     marginBottom: 16,
+    textAlign: 'justify',
   },
   message: {
     color: '#69698B',
@@ -128,9 +129,9 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   pairChipsContainer: {
+    width: '100%',
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 16,
+    justifyContent: 'space-around',
   },
 });
 
