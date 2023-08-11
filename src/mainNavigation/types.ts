@@ -8,7 +8,7 @@ export type TabParamList = {
 };
 
 export type StackParamList = {
-  MainTabs: TabParamList;
+  MainTabs?: TabParamList;
   Movements: undefined;
   TransactionDetail: {
     id: number;
