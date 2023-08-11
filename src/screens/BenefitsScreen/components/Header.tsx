@@ -7,6 +7,7 @@ import {useTransactionContext} from '../../../contexts/TransactionContext';
 
 export default function Header() {
   const {userPoints} = useTransactionContext();
+
   return (
     <View style={styles.container}>
       <View>
