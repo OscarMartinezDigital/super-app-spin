@@ -10,13 +10,14 @@ import Header from './components/Header';
 import Chip from './components/Chip';
 import Disclaimer from './components/Disclaimer';
 import {StepTwoProps} from '../../mainNavigation/types';
+import {useTransactionContext} from '../../contexts/TransactionContext';
 
 const SelectPoints = ({route}: StepTwoProps) => {
   const navigation = useNavigation<NavigationProps>();
   const [inputValue, setInputValue] = useState('');
   const [isValid, setIsValid] = useState(false);
   const {points, entity} = route.params;
-  const [userPoints, setUserPoints] = useState(2000);
+  const {userPoints, setUserPoints} = useTransactionContext();
 
   const handleInputChange = (value: string) => {
     setInputValue(value);

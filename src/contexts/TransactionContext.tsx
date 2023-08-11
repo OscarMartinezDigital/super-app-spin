@@ -16,6 +16,7 @@ export const TransactionProvider: React.FC<{children: ReactNode}> = ({
   children,
 }) => {
   const [transactions, setTransactions] = useState<any[]>([]);
+  const [userPoints, setUserPoints] = useState<number>(10500);
 
   useEffect(() => {
     fetch('http://localhost:3000/history')
@@ -25,7 +26,8 @@ export const TransactionProvider: React.FC<{children: ReactNode}> = ({
   }, []);
 
   return (
-    <TransactionContext.Provider value={transactions}>
+    <TransactionContext.Provider
+      value={{transactions, userPoints, setUserPoints}}>
       {children}
     </TransactionContext.Provider>
   );

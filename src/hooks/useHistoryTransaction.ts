@@ -27,7 +27,7 @@ const groupByDate = (transactions: Transaction[]) => {
 };
 
 const useHistoryTransaction = () => {
-  const transactions = useContext(TransactionContext);
+  const {transactions} = useContext(TransactionContext);
 
   if (!transactions) {
     throw new Error('TransactionContext not available');
