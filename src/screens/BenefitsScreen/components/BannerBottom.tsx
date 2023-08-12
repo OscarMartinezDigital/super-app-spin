@@ -8,11 +8,13 @@ export default function BannerBottom() {
       showsHorizontalScrollIndicator={false}
       style={styles.container}>
       <Image
+        testID="image-1"
         source={require('../../../assets/banner.png')}
         style={styles.image}
       />
       <View style={{width: 16}} />
       <Image
+        testID="image-2"
         source={require('../../../assets/banner.png')}
         style={styles.image}
       />

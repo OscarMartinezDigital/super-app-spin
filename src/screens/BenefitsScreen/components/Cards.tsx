@@ -18,11 +18,12 @@ type CardItemProp = {
   imageSource: ImageSourcePropType;
   title: string;
   onPress: () => void;
+  testID?: string;
 };
 
-function CardITem({imageSource, title, onPress}: CardItemProp) {
+function CardITem({imageSource, title, testID, onPress}: CardItemProp) {
   return (
-    <Card>
+    <Card testID={testID}>
       <TouchableOpacity onPress={onPress}>
         <View style={styles.imageContainer}>
           <Image style={styles.cardImage} source={imageSource} />
@@ -43,11 +44,13 @@ export default function Cards({onHistoryPress, onRedeemPress}: CardsProps) {
         onPress={onHistoryPress}
         imageSource={require('../../../assets/consulta-historial.png')}
         title="Consulta tu historial"
+        testID="card-1"
       />
       <CardITem
         onPress={onRedeemPress}
         imageSource={require('../../../assets/cambia-puntos.png')}
         title="Cambia tus puntos"
+        testID="card-2"
       />
     </View>
   );
